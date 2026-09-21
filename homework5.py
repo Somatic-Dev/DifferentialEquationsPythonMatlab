@@ -52,3 +52,21 @@ def make_2_2_5():
     plt.tight_layout()
     plt.savefig("hw5_2_2_5.png", dpi=150)
     plt.close()
+
+def make_2_2_12():
+    # HW5 2.2.12: dx/dt = (2 - x)^3; x = 2 stable (multiplicity 3, algebraic approach)
+    from homework4 import slope_field, plot_solution, plot_extra_solutions
+
+    def f(t, x):
+        return (2 - x)**3
+
+    t_span = (0, 6)
+    plt.figure(figsize=(10, 6))
+    slope_field(f, x_range=t_span, y_range=(0, 4), density=27)
+    plot_extra_solutions(f, t_span, [(0, 0.5), (0, 3.5), (0, 3)])
+    plot_solution(f, t_span, t0=0, x0=1, label="x(0) = 1")
+    plt.axhline(2, color="#8aff80", linestyle=":", linewidth=1.0)
+    plt.title("HW5 2.2.12: dx/dt = (2 - x)^3  (x = 2 stable from both sides)")
+    plt.tight_layout()
+    plt.savefig("hw5_2_2_12.png", dpi=150)
+    plt.close()
