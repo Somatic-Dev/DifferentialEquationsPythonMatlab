@@ -41,7 +41,7 @@ def make_2_2_5():
     def f(t, x):
         return x**2 - 4
 
-    t_span = (-2, 2)
+    t_span = (0, 2)
     plt.figure(figsize=(10, 6))
     slope_field(f, x_range=t_span, y_range=(-4, 4), density=27)
     plot_extra_solutions(f, t_span, [(0, 0), (0, 3), (0, -3)])
