@@ -33,3 +33,22 @@ if __name__ == "__main__":
     plt.savefig("hw5_2_1_39.png", dpi=150)
     plt.close()
     print("wrote hw5_2_1_39.png")
+
+def make_2_2_5():
+    # HW5 2.2.5: dx/dt = x^2 - 4; critical points x = -2 (stable), x = 2 (unstable)
+    from homework4 import slope_field, plot_solution, plot_extra_solutions
+
+    def f(t, x):
+        return x**2 - 4
+
+    t_span = (-2, 2)
+    plt.figure(figsize=(10, 6))
+    slope_field(f, x_range=t_span, y_range=(-4, 4), density=27)
+    plot_extra_solutions(f, t_span, [(0, 0), (0, 3), (0, -3)])
+    plot_solution(f, t_span, t0=0, x0=1, label="x(0) = 1")
+    plt.axhline(-2, color="#8aff80", linestyle=":", linewidth=1.0)
+    plt.axhline(2, color="#ff5555", linestyle=":", linewidth=1.0)
+    plt.title("HW5 2.2.5: dx/dt = x^2 - 4  (x=-2 stable, x=+2 unstable)")
+    plt.tight_layout()
+    plt.savefig("hw5_2_2_5.png", dpi=150)
+    plt.close()
