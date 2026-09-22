@@ -70,3 +70,27 @@ def make_2_2_12():
     plt.tight_layout()
     plt.savefig("hw5_2_2_12.png", dpi=150)
     plt.close()
+
+def make_2_3_2():
+    # HW5 2.3.2: dv/dt = -kv coasting body
+    # x(t) = x0 + (v0/k)(1 - e^{-kt}) -> finite total distance v0/k
+    x0, v0, k = 0.0, 10.0, 0.5
+    t = np.linspace(0, 12, 600)
+    x = x0 + (v0 / k) * (1 - np.exp(-k * t))
+    plt.figure(figsize=(10, 6))
+    plt.plot(t, x0 + v0 * t, color="#ff8c42", linewidth=1.4, linestyle="--",
+             label="no resistance:  x = x0 + v0 t  (unbounded)")
+    plt.plot(t, x, color="#00e5ff", linewidth=2.2,
+             label="with drag:  x = x0 + (v0/k)(1 - e^(-kt))")
+    plt.axhline(x0 + v0 / k, color="#8aff80", linestyle=":", linewidth=1.2,
+                label="finite-distance ceiling  x0 + v0/k")
+    plt.xlim(0, 12)
+    plt.ylim(0, 40)
+    plt.xlabel("t (s)")
+    plt.ylabel("x(t)")
+    plt.title("HW5 2.3.2: coasting with linear drag  (x0=0, v0=10, k=0.5)")
+    plt.legend()
+    plt.grid(color="#555555", linestyle="--", linewidth=0.5)
+    plt.tight_layout()
+    plt.savefig("hw5_2_3_2.png", dpi=150)
+    plt.close()
